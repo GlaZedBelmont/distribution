@@ -981,6 +981,10 @@ function set_gambatte() {
         local TWB2_COLORIZATION=$(game_setting renderer.twb2_colorization)
         local TWB3_COLORIZATION=$(game_setting renderer.twb3_colorization)
         local PIXELSHIFT1_COLORIZATION=$(game_setting renderer.pixelshift1_colorization)
+        local COLORCORRECTION=$(game_setting renderer.colorcorrection)
+        local COLORCORRECTION_MODE=$(game_setting renderer.colorcorrection_mode)
+        local COLORCORRECTION_FRONTLIGHTPOSITION=$(game_setting renderer.colorcorrection_frontlightposition)
+
 
 	if [ -n "${COLORIZATION}" ]
         then
@@ -1001,6 +1005,20 @@ function set_gambatte() {
                     echo 'gambatte_gb_palette_twb64_2 = "'${TWB2_COLORIZATION}'"' >> ${GAMBATTECONF}
                     echo 'gambatte_gb_palette_twb64_3 = "'${TWB3_COLORIZATION}'"' >> ${GAMBATTECONF}
 		            echo 'gambatte_gb_palette_pixelshift_1 = "'${PIXELSHIFT1_COLORIZATION}'"' >> ${GAMBATTECONF}
+                ;;
+            esac
+        fi
+    fi
+	if [ -n "${COLORCORRECTION}" ]
+        then
+            case ${COLORCORRECTION} in
+                0|false|none)
+                    echo 'gambatte_gbc_color_correction = "disabled"' >> ${GAMBATTECONF}
+                ;;
+                *)
+                    echo 'gambatte_gbc_color_correction = "'${COLORCORRECTION}'"' >> ${GAMBATTECONF}
+                    echo 'gambatte_gbc_color_correction_mode = "'${COLORCORRECTION_MODE}'"' >> ${GAMBATTECONF}
+                    echo 'gambatte_gbc_frontlight_position = "'${COLORCORRECTION_FRONTLIGHTPOSITION}'"' >> ${GAMBATTECONF}
                 ;;
             esac
         fi
