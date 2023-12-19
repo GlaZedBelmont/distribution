@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-# Copyright (C) 2022-present - The JELOS Project (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2022-present JELOS (https://github.com/JustEnoughLinuxOS)
 
 PKG_NAME="citra-sa"
 PKG_LICENSE="MPLv2"
@@ -17,7 +17,7 @@ case ${DEVICE} in
   ;;
   *)
     PKG_URL="${PKG_SITE}.git"
-    PKG_VERSION="2b20082581906fe973e26ed36bef695aa1f64527"
+    PKG_VERSION="762ddfd07bd0c24c5fd99c202535d71410f9cc88"
   ;;
 esac
 
